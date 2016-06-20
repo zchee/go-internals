@@ -3,64 +3,202 @@ Type Switch
 
 Type switch syntax tree.
 
--	`*ast.Expr`
+ast.Node
+--------
+
+-	[ast.Expr](./ast/Expr.md)
+-	[ast.Decl](./ast/Decl.md)
+-	[ast.Stmt](./ast/Stmt.md)
+
+ast.Expr
+--------
+
+-	[ast.Expr](./ast/Expr.md)
 	-	[ast.BadExpr](./ast/BadExpr.md)
-	-	[ast.Ident](./ast/Ident.md)
-		-	Obj: [`ast.Object`](./ast/Object.md)
-			-	[`ast.Decl`](./ast/Decl.md)
-				-	[`ast.Field`](./ast/Field.md)
-				-	[`ast.ImportSpec`](./ast/ImportSpec.md)
-				-	[`ast.TypeSpec`](./ast/TypeSpec.md)
-				-	[`ast.ValueSpec`](./ast/ValueSpec.md)
-				-	[`ast.FuncDecl`](./ast/FuncDecl.md)
-				-	[`ast.LabeledStmt`](./ast/LabeledStmt.md)
-				-	[`ast.AssignStmt`](./ast/AssignStmt.md)
-				-	[`ast.Scope`](./ast/Scope.md)
-	-	[ast.Ellipsis](./ast/Ellipsis.md)
 	-	[ast.BasicLit](./ast/BasicLit.md)
-	-	[ast.FuncLit](./ast/FuncLit.md)
-	-	[ast.CompositeLit](./ast/CompositeLit.md)
-	-	[ast.ParenExpr](./ast/ParenExpr.md)
-	-	[ast.SelectorExpr](./ast/SelectorExpr.md)
-	-	[ast.IndexExpr](./ast/IndexExpr.md)
-	-	[ast.SliceExpr](./ast/SliceExpr.md)
-	-	[ast.TypeAssertExpr](./ast/TypeAssertExpr.md)
-	-	[ast.CallExpr](./ast/CallExpr.md)
-	-	[ast.StarExpr](./ast/StarExpr.md)
-	-	[ast.UnaryExpr](./ast/UnaryExpr.md)
+		-	Kind: [token.Token](https://godoc.org/go/token#Token)
+			-	[token.INT](https://godoc.org/go/token#INT) // 12345
+			-	[token.FLOAT](https://godoc.org/go/token#FLOAT) // 123.45
+			-	[token.IMAG](https://godoc.org/go/token#IMAG) // 123.45i
+			-	[token.CHAR](https://godoc.org/go/token#CHAR) // 'a'
+			-	[token.STRING](https://godoc.org/go/token#STRING) // "abc"
 	-	[ast.BinaryExpr](./ast/BinaryExpr.md)
+		-	X: [ast.Expr](./ast/Expr.md) // left operand
+		-	OpPos: [token.Pos](https://godoc.org/go/token#Pos) // position of Op
+		-	Op: [token.Token](https://godoc.org/go/token#Token) // operator
+			-	`ast.ADD` +
+			-	`ast.SUB` -
+			-	`ast.MUL` \*
+			-	`ast.QUO` /
+			-	`ast.REM` %
+			-	`ast.AND` &
+			-	`ast.OR` |
+			-	`ast.XOR` ^
+			-	`ast.SHL` \<\<
+			-	`ast.SHR` >>
+			-	`ast.AND_NOT` &^
+			-	`ast.ADD_ASSIGN` +=
+			-	`ast.SUB_ASSIGN` -=
+			-	`ast.MUL_ASSIGN` *=
+			-	`ast.QUO_ASSIGN` /=
+			-	`ast.REM_ASSIGN` %=
+			-	`ast.AND_ASSIGN` &=
+			-	`ast.OR_ASSIGN` |=
+			-	`ast.XOR_ASSIGN` ^=
+			-	`ast.SHL_ASSIGN` \<<=
+			-	`ast.SHR_ASSIGN` >>=
+			-	`ast.AND_NOT_ASSIGN` &^=
+			-	`ast.LAND` &&
+			-	`ast.LOR` ||
+			-	`ast.ARROW` <-
+			-	`ast.INC` ++
+			-	`ast.DEC` --
+			-	`ast.EQL` ==
+			-	`ast.LSS` \<
+			-	`ast.GTR` >
+			-	`ast.ASSIGN` =
+			-	`ast.NOT` !
+			-	`ast.NEQ` !=
+			-	`ast.LEQ` <=
+			-	`ast.GEQ` >=
+			-	`ast.DEFINE` :=
+			-	`ast.ELLIPSIS` ...
+			-	`ast.LPAREN` (
+			-	`ast.LBRACK` \[
+			-	`ast.LBRACE` {
+			-	`ast.COMMA` ,
+			-	`ast.PERIOD` .
+			-	`ast.RPAREN` )
+			-	`ast.RBRACK` ]
+			-	`ast.RBRACE` }
+			-	`ast.SEMICOLON` ;
+			-	`ast.COLON` :
+		-	Y: [ast.Expr](./ast/Expr.md) // right operand
+	-	[ast.CallExpr](./ast/CallExpr.md) // function expression
+		-	Fun: [ast.Expr](./ast.Expr.md)
+			-	[*ast.Ident](./ast/Ident.md)
+			-	[*ast.SelectorExpr](./ast/SelectorExpr.md)
+		-	Args: [\[ \]ast.Expr](./ast.Expr.md) // function arguments; or nil
+			-	[*ast.BasicLit](./ast/BasicLit.md)
+			-	[*ast.CallExpr](./ast/CallExpr.md)
+			-	[*ast.Ident](./ast/Ident.md)
+			-	[*ast.MapType](./ast/MapType.md)
+	-	[ast.CompositeLit](./ast/CompositeLit.md)
+	-	[ast.Ellipsis](./ast/Ellipsis.md)
+		-	Elt: [ast.Expr](./ast/Expr.md) // ellipsis element type (parameter lists only); or nil
+	-	[ast.FuncLit](./ast/FuncLit.md)
+		-	Type: [*ast.FuncType](./ast/FuncType.md)
+		-	Body: [*ast.BlockStmt](./ast/BlockStmt.md)
+	-	[ast.Ident](./ast/Ident.md)
+		-	Obj: [ast.Object](./ast/Object.md)
+			-	Kind: [ast.ObjKind](./ast/ObjKind.md)
+				-	[ast.Bad](./ast/ObjKind.md#Bad) // for error handling
+				-	[ast.Pkg](./ast/ObjKind.md#Pkg) // package
+				-	[ast.Con](./ast/ObjKind.md#Con) // constant
+				-	[ast.Typ](./ast/ObjKind.md#Typ) // type
+				-	[ast.Var](./ast/ObjKind.md#Var) // variable
+				-	[ast.Fun](./ast/ObjKind.md#Fun) // function or method
+				-	[ast.Lbl](./ast/ObjKind.md#Lbl) // label
+			-	Decl: `interface{}`
+				-	[ast.Field](./ast/Field.md)
+				-	[ast.ImportSpec](./ast/ImportSpec.md)
+				-	[ast.TypeSpec](./ast/TypeSpec.md)
+				-	[ast.ValueSpec](./ast/ValueSpec.md)
+				-	[ast.FuncDecl](./ast/FuncDecl.md)
+				-	[ast.LabeledStmt](./ast/LabeledStmt.md)
+				-	[ast.AssignStmt](./ast/AssignStmt.md)
+				-	[ast.Scope](./ast/Scope.md)
+	-	[ast.IndexExpr](./ast/IndexExpr.md)
+		-	X: [ast.Expr](./ast/Expr.md) // expression
+		-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
+		-	Index: [ast.Expr](./ast/Expr.md) // index expression
+		-	Y: [ast.Expr](./ast/Expr.md) // position of "\]"
 	-	[ast.KeyValueExpr](./ast/KeyValueExpr.md)
+		-	Key: [ast.Expr](./ast/Expr.md)
+		-	Colon: [token.Pos](https://godoc.org/go/token#Pos) // position of ":"
+		-	Value: [ast.Expr](./ast/Expr.md)
+	-	[ast.ParenExpr](./ast/ParenExpr.md)
+		-	Lparen: [token.Pos](https://godoc.org/go/token#Pos) // position of "("
+		-	X: [ast.Expr](./ast/Expr.md) // parenthesized expression
+		-	Rparen: [token.Pos](https://godoc.org/go/token#Pos) // position of "("
+	-	[ast.SelectorExpr](./ast/SelectorExpr.md)
+		-	X: [ast.Expr](./ast/Expr.md) // expression
+		-	Sel: [*ast.Ident](./ast/Ident.md) // field selector
+	-	[ast.SliceExpr](./ast/SliceExpr.md)
+		-	X: [ast.Expr](./ast/Expr.md) // expression
+		-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
+		-	Low: [ast.Expr](./ast/Expr.md) // begin of slice range; or nil
+		-	High: [ast.Expr](./ast/Expr.md) // end of slice range; or nil
+		-	Max: [ast.Expr](./ast/Expr.md) // maximum capacity of slice; or nil
+		-	Rbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\]"
+	-	[ast.StarExpr](./ast/StarExpr.md)
+		-	Star: [token.Pos](https://godoc.org/go/token#Pos) // position of "*"
+		-	X: [ast.Expr](./ast/Expr.md) // operand
+	-	[ast.TypeAssertExpr](./ast/TypeAssertExpr.md)
+		-	X: [ast.Expr](./ast/Expr.md) // expression
+		-	Lparen: [token.Pos](https://godoc.org/go/token#Pos) // position of "("
+		-	Type: [ast.Expr](./ast/Expr.md) // asserted type; nil means type switch X.(type)
+		-	Rparen: [token.Pos](https://godoc.org/go/token#Pos) // position of ")"
+	-	[ast.UnaryExpr](./ast/UnaryExpr.md)
+		-	OpPos: [token.Pos](https://godoc.org/go/token#Pos) // position of Op
+		-	Op: [token.Pos](https://godoc.org/go/token#Token) // operator
+		-	X: [ast.Expr](./ast/Expr.md) // operand
 	-	[ast.ArrayType](./ast/ArrayType.md)
-	-	[ast.StructType](./ast/StructType.md)
-	-	[ast.FuncType](./ast/FuncType.md)
-	-	[ast.InterfaceType](./ast/InterfaceType.md)
-	-	[ast.MapType](./ast/MapType.md)
+		-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
+		-	Len: [ast.Expr](./ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
+		-	Elt: [ast.Expr](./ast/Expr.md) // element type
 	-	[ast.ChanType](./ast/ChanType.md)
--	`ast.Decl`
+		-	Begin: [token.Pos](https://godoc.org/go/token#Pos) // position of "chan" keyword or "-" (whichever comes first)
+		-	Arrow: [token.Pos](https://godoc.org/go/token#Pos) // position of "-" (token.NoPos if there is no "-")
+		-	Dir: [ChanDir](./ast/ChanDir.md) // channel direction
+		-	Value: [ast.Expr](./ast/Expr.md) // value type
+	-	[ast.FuncType](./ast/FuncType.md)
+		-	Func: [token.Pos](https://godoc.org/go/token#Pos) // position of "func" keyword (token.NoPos if there is no "func")
+		-	Params: [*ast.FieldList](./ast/FieldList.md) // (incoming) parameters; non-nil
+		-	Results: [*ast.FieldList](./ast/FieldList.md) // (outgoing) results; or nil
+	-	[ast.InterfaceType](./ast/InterfaceType.md)
+		-	Interface: [token.Pos](https://godoc.org/go/token#Pos) // position of "interface" keyword
+		-	Methods: [*ast.FieldList](./ast/FieldList.md) // list of methods
+	-	[ast.MapType](./ast/MapType.md)
+		-	Map: [token.Pos](https://godoc.org/go/token#Pos) // position of "map" keyword
+		-	Key: [ast.Expr](./ast/Expr.md)
+		-	Value: [ast.Expr](./ast/Expr.md)
+	-	[ast.StructType](./ast/StructType.md)
+		-	Struct: [token.Pos](https://godoc.org/go/token#Pos) // position of "struct" keyword
+		-	Fields: [*ast.FieldList](./ast/FieldList.md) // list of field declarations
+
+ast.Decl
+--------
+
+-	[ast.Decl](./ast/Decl.md)
 	-	[ast.BadDecl](./ast/BadDecl.md)
 	-	[ast.GenDecl](./ast/GenDecl.md)
-		-	Token [token.Token (godoc.org)](https://godoc.org/go/token#Token)
-			-	[`token.IMPORT` (godoc.org)](https://godoc.org/go/token#IMPORT)
-			-	[`token.CONST` (godoc.org)](https://godoc.org/go/token#CONST)
-			-	[`token.TYPE` (godoc.org)](https://godoc.org/go/token#TYPE)
-			-	[`token.VAR` (godoc.org)](https://godoc.org/go/token#VAR)
-		-	Specs [[ ]ast.Specs](./ast/Spec.md)
-			-	[`ast.ImportSpec`](./ast/ImportSpec.md)
-			-	[`ast.TypeSpec`](./ast/TypeSpec.md)
-			-	[`ast.ValueSpec`](./ast/ValueSpec.md)
+		-	Token: [token.Token](https://godoc.org/go/token#Token)
+			-	[token.IMPORT](https://godoc.org/go/token#IMPORT)
+			-	[token.CONST](https://godoc.org/go/token#CONST)
+			-	[token.TYPE](https://godoc.org/go/token#TYPE)
+			-	[token.VAR](https://godoc.org/go/token#VAR)
+		-	Specs: [\[ \]ast.Specs](./ast/Spec.md)
+			-	[ast.ImportSpec](./ast/ImportSpec.md)
+			-	[ast.TypeSpec](./ast/TypeSpec.md)
+			-	[ast.ValueSpec](./ast/ValueSpec.md)
 	-	[ast.FuncDecl](./ast/FuncDecl.md)
 		-	Name: [ast.Ident](./ast/Ident.md)
-			-	[`ast.Object`](./ast/Object.md)
-				-	[`ast.Decl`](./ast/Decl.md)
-					-	[`ast.Field`](./ast/Field.md)
-					-	[`ast.ImportSpec`](./ast/ImportSpec.md)
-					-	[`ast.TypeSpec`](./ast/TypeSpec.md)
-					-	[`ast.ValueSpec`](./ast/ValueSpec.md)
-					-	[`ast.FuncDecl`](./ast/FuncDecl.md)
-					-	[`ast.LabeledStmt`](./ast/LabeledStmt.md)
-					-	[`ast.AssignStmt`](./ast/AssignStmt.md)
-					-	[`ast.Scope`](./ast/Scope.md)
--	`ast.Stmt`
+			-	[ast.Object](./ast/Object.md)
+				-	[ast.Decl](./ast/Decl.md)
+					-	[ast.Field](./ast/Field.md)
+					-	[ast.ImportSpec](./ast/ImportSpec.md)
+					-	[ast.TypeSpec](./ast/TypeSpec.md)
+					-	[ast.ValueSpec](./ast/ValueSpec.md)
+					-	[ast.FuncDecl](./ast/FuncDecl.md)
+					-	[ast.LabeledStmt](./ast/LabeledStmt.md)
+					-	[ast.AssignStmt](./ast/AssignStmt.md)
+					-	[ast.Scope](./ast/Scope.md)
+
+ast.Stmt
+--------
+
+-	[ast.Stmt](./ast/Stmt.md)
 	-	[ast.BadStmt](./ast/BadStmt.md)
 	-	[ast.DeclStmt](./ast/DeclStmt.md)
 	-	[ast.EmptyStmt](./ast/EmptyStmt.md)
