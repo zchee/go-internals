@@ -84,6 +84,17 @@ ast.Expr
 			-	[*ast.Ident](./ast/Ident.md)
 			-	[*ast.MapType](./ast/MapType.md)
 	-	[ast.CompositeLit](./ast/CompositeLit.md)
+		-	Type: [ast.Expr](./ast.Expr.md) // literal type; or nil
+			-	[*ast.ArrayType](./ast/ArrayType.md)
+			-	[*ast.MapType](./ast/MapType.md)
+			-	[*ast.StructType](./ast/StructType.md)
+			-	[*ast.Ident](./ast/Ident.md)
+		-	Lbrace: [token.Pos](https://godoc.org/go/token#Pos) // position of "{"
+		-	Elts [\[\]ast.Expr](./ast.Expr.md) // list of composite elements; or nil
+			-	[*ast.KeyValueExpr](./ast/KeyValueExpr.md)
+			-	[*ast.CompositeLit](./ast/CompositeLit.md)
+			-	[*ast.StarExpr](./ast/StarExpr.md)
+		-	Rbrace: [token.Pos](https://godoc.org/go/token#Pos) // position of "}"
 	-	[ast.Ellipsis](./ast/Ellipsis.md)
 		-	Elt: [ast.Expr](./ast/Expr.md) // ellipsis element type (parameter lists only); or nil
 	-	[ast.FuncLit](./ast/FuncLit.md)
