@@ -19,7 +19,7 @@ type Ident struct {
 
 ### Type Switch
 
--	[`ast.Ident.Object.Decl`](./Object.md#type-switch)
+-	[`ast.Ident.Obj.Decl`](./Object.md#type-switch)
 	-	[`ast.Field`](./Field.md)
 	-	[`ast.ImportSpec`](./ImportSpec.md)
 	-	[`ast.TypeSpec`](./TypeSpec.md)
