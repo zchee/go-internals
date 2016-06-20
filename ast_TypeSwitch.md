@@ -1,5 +1,5 @@
-Type Switch
-===========
+go/ast Type Switch
+==================
 
 Type switch syntax tree.
 
