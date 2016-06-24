@@ -13,17 +13,17 @@ ast.Node
 ast.Expr
 --------
 
--	[ast.Expr](./ast/Expr.md)
-	-	[ast.BadExpr](./ast/BadExpr.md)
-	-	[ast.BasicLit](./ast/BasicLit.md)
+-	[ast.Expr](./go/ast/Expr.md)
+	-	[ast.BadExpr](./go/ast/BadExpr.md)
+	-	[ast.BasicLit](./go/ast/BasicLit.md)
 		-	Kind: [token.Token](https://godoc.org/go/token#Token)
 			-	[token.INT](https://godoc.org/go/token#INT) // 12345
 			-	[token.FLOAT](https://godoc.org/go/token#FLOAT) // 123.45
 			-	[token.IMAG](https://godoc.org/go/token#IMAG) // 123.45i
 			-	[token.CHAR](https://godoc.org/go/token#CHAR) // 'a'
 			-	[token.STRING](https://godoc.org/go/token#STRING) // "abc"
-	-	[ast.BinaryExpr](./ast/BinaryExpr.md)
-		-	X: [ast.Expr](./ast/Expr.md) // left operand
+	-	[ast.BinaryExpr](./go/ast/BinaryExpr.md)
+		-	X: [ast.Expr](./go/ast/Expr.md) // left operand
 		-	OpPos: [token.Pos](https://godoc.org/go/token#Pos) // position of Op
 		-	Op: [token.Token](https://godoc.org/go/token#Token) // operator
 			-	`ast.ADD` +
@@ -73,322 +73,322 @@ ast.Expr
 			-	`ast.RBRACE` }
 			-	`ast.SEMICOLON` ;
 			-	`ast.COLON` :
-		-	Y: [ast.Expr](./ast/Expr.md) // right operand
-	-	[ast.CallExpr](./ast/CallExpr.md)
-		-	Fun: [ast.Expr](./ast.Expr.md) // function expression
-			-	[*ast.Ident](./ast/Ident.md)
-			-	[*ast.SelectorExpr](./ast/SelectorExpr.md)
-		-	Args: [\[ \]ast.Expr](./ast.Expr.md) // function arguments; or nil
-			-	[*ast.BasicLit](./ast/BasicLit.md)
-			-	[*ast.CallExpr](./ast/CallExpr.md)
-			-	[*ast.Ident](./ast/Ident.md)
-			-	[*ast.MapType](./ast/MapType.md)
-	-	[ast.CompositeLit](./ast/CompositeLit.md)
-		-	Type: [ast.Expr](./ast.Expr.md) // literal type; or nil
-			-	[*ast.ArrayType](./ast/ArrayType.md)
-			-	[*ast.MapType](./ast/MapType.md)
-			-	[*ast.StructType](./ast/StructType.md)
-			-	[*ast.Ident](./ast/Ident.md)
+		-	Y: [ast.Expr](./go/ast/Expr.md) // right operand
+	-	[ast.CallExpr](./go/ast/CallExpr.md)
+		-	Fun: [ast.Expr](./go/ast.Expr.md) // function expression
+			-	[*ast.Ident](./go/ast/Ident.md)
+			-	[*ast.SelectorExpr](./go/ast/SelectorExpr.md)
+		-	Args: [\[ \]ast.Expr](./go/ast.Expr.md) // function arguments; or nil
+			-	[*ast.BasicLit](./go/ast/BasicLit.md)
+			-	[*ast.CallExpr](./go/ast/CallExpr.md)
+			-	[*ast.Ident](./go/ast/Ident.md)
+			-	[*ast.MapType](./go/ast/MapType.md)
+	-	[ast.CompositeLit](./go/ast/CompositeLit.md)
+		-	Type: [ast.Expr](./go/ast.Expr.md) // literal type; or nil
+			-	[*ast.ArrayType](./go/ast/ArrayType.md)
+			-	[*ast.MapType](./go/ast/MapType.md)
+			-	[*ast.StructType](./go/ast/StructType.md)
+			-	[*ast.Ident](./go/ast/Ident.md)
 		-	Lbrace: [token.Pos](https://godoc.org/go/token#Pos) // position of "{"
-		-	Elts [\[\]ast.Expr](./ast.Expr.md) // list of composite elements; or nil
-			-	[*ast.KeyValueExpr](./ast/KeyValueExpr.md)
-			-	[*ast.CompositeLit](./ast/CompositeLit.md)
-			-	[*ast.StarExpr](./ast/StarExpr.md)
+		-	Elts [\[\]ast.Expr](./go/ast.Expr.md) // list of composite elements; or nil
+			-	[*ast.KeyValueExpr](./go/ast/KeyValueExpr.md)
+			-	[*ast.CompositeLit](./go/ast/CompositeLit.md)
+			-	[*ast.StarExpr](./go/ast/StarExpr.md)
 		-	Rbrace: [token.Pos](https://godoc.org/go/token#Pos) // position of "}"
-	-	[ast.Ellipsis](./ast/Ellipsis.md)
-		-	Elt: [ast.Expr](./ast/Expr.md) // ellipsis element type (parameter lists only); or nil
-	-	[ast.FuncLit](./ast/FuncLit.md)
-		-	Type: [*ast.FuncType](./ast/FuncType.md)
-		-	Body: [*ast.BlockStmt](./ast/BlockStmt.md)
-	-	[ast.Ident](./ast/Ident.md)
-		-	Obj: [*ast.Object](./ast/Object.md) // denoted object; or nil
-			-	Kind: [ast.ObjKind](./ast/ObjKind.md)
-				-	[ast.Bad](./ast/ObjKind.md#Bad) // for error handling
-				-	[ast.Pkg](./ast/ObjKind.md#Pkg) // package
-				-	[ast.Con](./ast/ObjKind.md#Con) // constant
-				-	[ast.Typ](./ast/ObjKind.md#Typ) // type
-				-	[ast.Var](./ast/ObjKind.md#Var) // variable
-				-	[ast.Fun](./ast/ObjKind.md#Fun) // function or method
-				-	[ast.Lbl](./ast/ObjKind.md#Lbl) // label
+	-	[ast.Ellipsis](./go/ast/Ellipsis.md)
+		-	Elt: [ast.Expr](./go/ast/Expr.md) // ellipsis element type (parameter lists only); or nil
+	-	[ast.FuncLit](./go/ast/FuncLit.md)
+		-	Type: [*ast.FuncType](./go/ast/FuncType.md)
+		-	Body: [*ast.BlockStmt](./go/ast/BlockStmt.md)
+	-	[ast.Ident](./go/ast/Ident.md)
+		-	Obj: [*ast.Object](./go/ast/Object.md) // denoted object; or nil
+			-	Kind: [ast.ObjKind](./go/ast/ObjKind.md)
+				-	[ast.Bad](./go/ast/ObjKind.md#Bad) // for error handling
+				-	[ast.Pkg](./go/ast/ObjKind.md#Pkg) // package
+				-	[ast.Con](./go/ast/ObjKind.md#Con) // constant
+				-	[ast.Typ](./go/ast/ObjKind.md#Typ) // type
+				-	[ast.Var](./go/ast/ObjKind.md#Var) // variable
+				-	[ast.Fun](./go/ast/ObjKind.md#Fun) // function or method
+				-	[ast.Lbl](./go/ast/ObjKind.md#Lbl) // label
 			-	Decl: `interface{}`
-				-	[ast.Field](./ast/Field.md)
-					-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-					-	Names: [*ast.Ident](./ast/Ident.md) // field/method/parameter names; or nil if anonymous field
-					-	Type: [*ast.Expr](./ast/Expr.md) // field/method/parameter type
-					-	Tag: [*ast.BasicLit](./ast/CommentGroup.md) // field tag; or nil
-					-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-				-	[ast.ImportSpec](./ast/ImportSpec.md)
-					-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-					-	Name: [*ast.Ident](./ast/Ident.md) // local package name (including "."); or nil
-					-	Path: [*ast.BasicLit](./ast/CommentGroup.md) // import path
-					-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
+				-	[ast.Field](./go/ast/Field.md)
+					-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+					-	Names: [*ast.Ident](./go/ast/Ident.md) // field/method/parameter names; or nil if anonymous field
+					-	Type: [*ast.Expr](./go/ast/Expr.md) // field/method/parameter type
+					-	Tag: [*ast.BasicLit](./go/ast/CommentGroup.md) // field tag; or nil
+					-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+				-	[ast.ImportSpec](./go/ast/ImportSpec.md)
+					-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+					-	Name: [*ast.Ident](./go/ast/Ident.md) // local package name (including "."); or nil
+					-	Path: [*ast.BasicLit](./go/ast/CommentGroup.md) // import path
+					-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
 					-	EndPos: [token.Pos](https://godoc.org/go/token#Pos) // end of spec (overrides Path.Pos if nonzero)
-				-	[ast.TypeSpec](./ast/TypeSpec.md)
-					-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-					-	Name: [*ast.Ident](./ast/Ident.md) // type name
-					-	Type: [ast.Expr](./ast/Expr.md) // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
-						-	[*ast.Ident](./ast/Ident.md)
-						-	[*ast.ParenExpr](./ast/ParenExpr.md)
-						-	[*ast.SelectorExpr](./ast/SelectorExpr.md)
-						-	[*ast.StarExpr](./ast/StarExpr.md)
-						-	[ast.ArrayType](./ast/ArrayType.md)
+				-	[ast.TypeSpec](./go/ast/TypeSpec.md)
+					-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+					-	Name: [*ast.Ident](./go/ast/Ident.md) // type name
+					-	Type: [ast.Expr](./go/ast/Expr.md) // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
+						-	[*ast.Ident](./go/ast/Ident.md)
+						-	[*ast.ParenExpr](./go/ast/ParenExpr.md)
+						-	[*ast.SelectorExpr](./go/ast/SelectorExpr.md)
+						-	[*ast.StarExpr](./go/ast/StarExpr.md)
+						-	[ast.ArrayType](./go/ast/ArrayType.md)
 							-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
-							-	Len: [ast.Expr](./ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
-							-	Elt: [ast.Expr](./ast/Expr.md) // element type
-						-	[ast.ChanType](./ast/ChanType.md)
+							-	Len: [ast.Expr](./go/ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
+							-	Elt: [ast.Expr](./go/ast/Expr.md) // element type
+						-	[ast.ChanType](./go/ast/ChanType.md)
 							-	Begin: [token.Pos](https://godoc.org/go/token#Pos) // position of "chan" keyword or "-" (whichever comes first)
 							-	Arrow: [token.Pos](https://godoc.org/go/token#Pos) // position of "-" (token.NoPos if there is no "-")
-							-	Dir: [ChanDir](./ast/ChanDir.md) // channel direction
-							-	Value: [ast.Expr](./ast/Expr.md) // value type
-						-	[ast.FuncType](./ast/FuncType.md)
+							-	Dir: [ChanDir](./go/ast/ChanDir.md) // channel direction
+							-	Value: [ast.Expr](./go/ast/Expr.md) // value type
+						-	[ast.FuncType](./go/ast/FuncType.md)
 							-	Func: [token.Pos](https://godoc.org/go/token#Pos) // position of "func" keyword (token.NoPos if there is no "func")
-							-	Params: [*ast.FieldList](./ast/FieldList.md) // (incoming) parameters; non-nil
-							-	Results: [*ast.FieldList](./ast/FieldList.md) // (outgoing) results; or nil
-						-	[ast.InterfaceType](./ast/InterfaceType.md)
+							-	Params: [*ast.FieldList](./go/ast/FieldList.md) // (incoming) parameters; non-nil
+							-	Results: [*ast.FieldList](./go/ast/FieldList.md) // (outgoing) results; or nil
+						-	[ast.InterfaceType](./go/ast/InterfaceType.md)
 							-	Interface: [token.Pos](https://godoc.org/go/token#Pos) // position of "interface" keyword
-							-	Methods: [*ast.FieldList](./ast/FieldList.md) // list of methods
-						-	[ast.MapType](./ast/MapType.md)
+							-	Methods: [*ast.FieldList](./go/ast/FieldList.md) // list of methods
+						-	[ast.MapType](./go/ast/MapType.md)
 							-	Map: [token.Pos](https://godoc.org/go/token#Pos) // position of "map" keyword
-							-	Key: [ast.Expr](./ast/Expr.md)
-							-	Value: [ast.Expr](./ast/Expr.md)
-						-	[ast.StructType](./ast/StructType.md)
+							-	Key: [ast.Expr](./go/ast/Expr.md)
+							-	Value: [ast.Expr](./go/ast/Expr.md)
+						-	[ast.StructType](./go/ast/StructType.md)
 							-	Struct: [token.Pos](https://godoc.org/go/token#Pos) // position of "struct" keyword
-							-	Fields: [*ast.FieldList](./ast/FieldList.md) // list of field declarations
-					-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-				-	[ast.ValueSpec](./ast/ValueSpec.md)
-					-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-					-	Name: [*ast.Ident](./ast/Ident.md) // value name (len(Names) > 0)
-					-	Type: [ast.Expr](./ast/Expr.md) // value type; or nil
-					-	Values: [\[\]ast.Expr](./ast/Expr.md) // initial value; or nil
-					-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-				-	[ast.FuncDecl](./ast/FuncDecl.md)
-					-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-					-	Recv: [*ast.FieldList](./ast/FieldList.md) // receiver (methods); or nil (functions)
-					-	Name: [*ast.Ident](./ast/Ident.md) // function/method name
-					-	Type: [*ast.FuncType](./ast/FuncType.md) // function signature: parameters, results, and position of "func" keyword
-					-	Body: [*ast.BlockStmt](./ast/BlockStmt.md) // function body; or nil (forward declaration)
-				-	[ast.LabeledStmt](./ast/LabeledStmt.md)
-					-	Label: [*ast.Ident](./ast/Ident.md)
+							-	Fields: [*ast.FieldList](./go/ast/FieldList.md) // list of field declarations
+					-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+				-	[ast.ValueSpec](./go/ast/ValueSpec.md)
+					-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+					-	Name: [*ast.Ident](./go/ast/Ident.md) // value name (len(Names) > 0)
+					-	Type: [ast.Expr](./go/ast/Expr.md) // value type; or nil
+					-	Values: [\[\]ast.Expr](./go/ast/Expr.md) // initial value; or nil
+					-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+				-	[ast.FuncDecl](./go/ast/FuncDecl.md)
+					-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+					-	Recv: [*ast.FieldList](./go/ast/FieldList.md) // receiver (methods); or nil (functions)
+					-	Name: [*ast.Ident](./go/ast/Ident.md) // function/method name
+					-	Type: [*ast.FuncType](./go/ast/FuncType.md) // function signature: parameters, results, and position of "func" keyword
+					-	Body: [*ast.BlockStmt](./go/ast/BlockStmt.md) // function body; or nil (forward declaration)
+				-	[ast.LabeledStmt](./go/ast/LabeledStmt.md)
+					-	Label: [*ast.Ident](./go/ast/Ident.md)
 					-	Colon: [token.Pos](https://godoc.org/go/token#Pos) // position of ":"
-					-	Stmt: [ast.Stmt](./ast/Stmt.md)
-				-	[ast.AssignStmt](./ast/AssignStmt.md)
-					-	Lhs: [\[\]ast.Expr](./ast/Expr.md)
+					-	Stmt: [ast.Stmt](./go/ast/Stmt.md)
+				-	[ast.AssignStmt](./go/ast/AssignStmt.md)
+					-	Lhs: [\[\]ast.Expr](./go/ast/Expr.md)
 					-	TokPos: [token.Pos](https://godoc.org/go/token#Pos) // position of Tok
 					-	Tok: [token.Token](https://godoc.org/go/token#Token) // assignment token, DEFINE
-					-	Rhs: [\[\]ast.Expr](./ast/Expr.md)
-				-	[ast.Scope](./ast/Scope.md)
-					-	Outer: [*ast.Scope](./ast/Scope.md)
-					-	Objects: [map\[string\]*ast.Object](./ast/Object.md)
-	-	[ast.IndexExpr](./ast/IndexExpr.md)
-		-	X: [ast.Expr](./ast/Expr.md) // expression
+					-	Rhs: [\[\]ast.Expr](./go/ast/Expr.md)
+				-	[ast.Scope](./go/ast/Scope.md)
+					-	Outer: [*ast.Scope](./go/ast/Scope.md)
+					-	Objects: [map\[string\]*ast.Object](./go/ast/Object.md)
+	-	[ast.IndexExpr](./go/ast/IndexExpr.md)
+		-	X: [ast.Expr](./go/ast/Expr.md) // expression
 		-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
-		-	Index: [ast.Expr](./ast/Expr.md) // index expression
-		-	Y: [ast.Expr](./ast/Expr.md) // position of "\]"
-	-	[ast.KeyValueExpr](./ast/KeyValueExpr.md)
-		-	Key: [ast.Expr](./ast/Expr.md)
+		-	Index: [ast.Expr](./go/ast/Expr.md) // index expression
+		-	Y: [ast.Expr](./go/ast/Expr.md) // position of "\]"
+	-	[ast.KeyValueExpr](./go/ast/KeyValueExpr.md)
+		-	Key: [ast.Expr](./go/ast/Expr.md)
 		-	Colon: [token.Pos](https://godoc.org/go/token#Pos) // position of ":"
-		-	Value: [ast.Expr](./ast/Expr.md)
-	-	[ast.ParenExpr](./ast/ParenExpr.md)
+		-	Value: [ast.Expr](./go/ast/Expr.md)
+	-	[ast.ParenExpr](./go/ast/ParenExpr.md)
 		-	Lparen: [token.Pos](https://godoc.org/go/token#Pos) // position of "("
-		-	X: [ast.Expr](./ast/Expr.md) // parenthesized expression
+		-	X: [ast.Expr](./go/ast/Expr.md) // parenthesized expression
 		-	Rparen: [token.Pos](https://godoc.org/go/token#Pos) // position of "("
-	-	[ast.SelectorExpr](./ast/SelectorExpr.md)
-		-	X: [ast.Expr](./ast/Expr.md) // expression
-		-	Sel: [*ast.Ident](./ast/Ident.md) // field selector
-	-	[ast.SliceExpr](./ast/SliceExpr.md)
-		-	X: [ast.Expr](./ast/Expr.md) // expression
+	-	[ast.SelectorExpr](./go/ast/SelectorExpr.md)
+		-	X: [ast.Expr](./go/ast/Expr.md) // expression
+		-	Sel: [*ast.Ident](./go/ast/Ident.md) // field selector
+	-	[ast.SliceExpr](./go/ast/SliceExpr.md)
+		-	X: [ast.Expr](./go/ast/Expr.md) // expression
 		-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
-		-	Low: [ast.Expr](./ast/Expr.md) // begin of slice range; or nil
-		-	High: [ast.Expr](./ast/Expr.md) // end of slice range; or nil
-		-	Max: [ast.Expr](./ast/Expr.md) // maximum capacity of slice; or nil
+		-	Low: [ast.Expr](./go/ast/Expr.md) // begin of slice range; or nil
+		-	High: [ast.Expr](./go/ast/Expr.md) // end of slice range; or nil
+		-	Max: [ast.Expr](./go/ast/Expr.md) // maximum capacity of slice; or nil
 		-	Rbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\]"
-	-	[ast.StarExpr](./ast/StarExpr.md)
+	-	[ast.StarExpr](./go/ast/StarExpr.md)
 		-	Star: [token.Pos](https://godoc.org/go/token#Pos) // position of "*"
-		-	X: [ast.Expr](./ast/Expr.md) // operand
-	-	[ast.TypeAssertExpr](./ast/TypeAssertExpr.md)
-		-	X: [ast.Expr](./ast/Expr.md) // expression
+		-	X: [ast.Expr](./go/ast/Expr.md) // operand
+	-	[ast.TypeAssertExpr](./go/ast/TypeAssertExpr.md)
+		-	X: [ast.Expr](./go/ast/Expr.md) // expression
 		-	Lparen: [token.Pos](https://godoc.org/go/token#Pos) // position of "("
-		-	Type: [ast.Expr](./ast/Expr.md) // asserted type; nil means type switch X.(type)
+		-	Type: [ast.Expr](./go/ast/Expr.md) // asserted type; nil means type switch X.(type)
 		-	Rparen: [token.Pos](https://godoc.org/go/token#Pos) // position of ")"
-	-	[ast.UnaryExpr](./ast/UnaryExpr.md)
+	-	[ast.UnaryExpr](./go/ast/UnaryExpr.md)
 		-	OpPos: [token.Pos](https://godoc.org/go/token#Pos) // position of Op
 		-	Op: [token.Pos](https://godoc.org/go/token#Token) // operator
-		-	X: [ast.Expr](./ast/Expr.md) // operand
-	-	[ast.ArrayType](./ast/ArrayType.md)
+		-	X: [ast.Expr](./go/ast/Expr.md) // operand
+	-	[ast.ArrayType](./go/ast/ArrayType.md)
 		-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
-		-	Len: [ast.Expr](./ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
-		-	Elt: [ast.Expr](./ast/Expr.md) // element type
-	-	[ast.ChanType](./ast/ChanType.md)
+		-	Len: [ast.Expr](./go/ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
+		-	Elt: [ast.Expr](./go/ast/Expr.md) // element type
+	-	[ast.ChanType](./go/ast/ChanType.md)
 		-	Begin: [token.Pos](https://godoc.org/go/token#Pos) // position of "chan" keyword or "-" (whichever comes first)
 		-	Arrow: [token.Pos](https://godoc.org/go/token#Pos) // position of "-" (token.NoPos if there is no "-")
-		-	Dir: [ChanDir](./ast/ChanDir.md) // channel direction
-		-	Value: [ast.Expr](./ast/Expr.md) // value type
-	-	[ast.FuncType](./ast/FuncType.md)
+		-	Dir: [ChanDir](./go/ast/ChanDir.md) // channel direction
+		-	Value: [ast.Expr](./go/ast/Expr.md) // value type
+	-	[ast.FuncType](./go/ast/FuncType.md)
 		-	Func: [token.Pos](https://godoc.org/go/token#Pos) // position of "func" keyword (token.NoPos if there is no "func")
-		-	Params: [*ast.FieldList](./ast/FieldList.md) // (incoming) parameters; non-nil
-		-	Results: [*ast.FieldList](./ast/FieldList.md) // (outgoing) results; or nil
-	-	[ast.InterfaceType](./ast/InterfaceType.md)
+		-	Params: [*ast.FieldList](./go/ast/FieldList.md) // (incoming) parameters; non-nil
+		-	Results: [*ast.FieldList](./go/ast/FieldList.md) // (outgoing) results; or nil
+	-	[ast.InterfaceType](./go/ast/InterfaceType.md)
 		-	Interface: [token.Pos](https://godoc.org/go/token#Pos) // position of "interface" keyword
-		-	Methods: [*ast.FieldList](./ast/FieldList.md) // list of methods
-	-	[ast.MapType](./ast/MapType.md)
+		-	Methods: [*ast.FieldList](./go/ast/FieldList.md) // list of methods
+	-	[ast.MapType](./go/ast/MapType.md)
 		-	Map: [token.Pos](https://godoc.org/go/token#Pos) // position of "map" keyword
-		-	Key: [ast.Expr](./ast/Expr.md)
-		-	Value: [ast.Expr](./ast/Expr.md)
-	-	[ast.StructType](./ast/StructType.md)
+		-	Key: [ast.Expr](./go/ast/Expr.md)
+		-	Value: [ast.Expr](./go/ast/Expr.md)
+	-	[ast.StructType](./go/ast/StructType.md)
 		-	Struct: [token.Pos](https://godoc.org/go/token#Pos) // position of "struct" keyword
-		-	Fields: [*ast.FieldList](./ast/FieldList.md) // list of field declarations
+		-	Fields: [*ast.FieldList](./go/ast/FieldList.md) // list of field declarations
 
 ast.Decl
 --------
 
--	[ast.Decl](./ast/Decl.md)
-	-	[ast.BadDecl](./ast/BadDecl.md)
-	-	[ast.GenDecl](./ast/GenDecl.md)
+-	[ast.Decl](./go/ast/Decl.md)
+	-	[ast.BadDecl](./go/ast/BadDecl.md)
+	-	[ast.GenDecl](./go/ast/GenDecl.md)
 		-	Token: [token.Token](https://godoc.org/go/token#Token)
 			-	[token.IMPORT](https://godoc.org/go/token#IMPORT)
 			-	[token.CONST](https://godoc.org/go/token#CONST)
 			-	[token.TYPE](https://godoc.org/go/token#TYPE)
 			-	[token.VAR](https://godoc.org/go/token#VAR)
-		-	Specs: [\[ \]ast.Specs](./ast/Spec.md)
-			-	[ast.ImportSpec](./ast/ImportSpec.md)
-				-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-				-	Name: [*ast.Ident](./ast/Ident.md) // local package name (including "."); or nil
-				-	Path: [*ast.BasicLit](./ast/CommentGroup.md) // import path
-				-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
+		-	Specs: [\[ \]ast.Specs](./go/ast/Spec.md)
+			-	[ast.ImportSpec](./go/ast/ImportSpec.md)
+				-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+				-	Name: [*ast.Ident](./go/ast/Ident.md) // local package name (including "."); or nil
+				-	Path: [*ast.BasicLit](./go/ast/CommentGroup.md) // import path
+				-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
 				-	EndPos: [token.Pos](https://godoc.org/go/token#Pos) // end of spec (overrides Path.Pos if nonzero)
-			-	[ast.TypeSpec](./ast/TypeSpec.md)
-				-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-				-	Name: [*ast.Ident](./ast/Ident.md) // type name
-				-	Type: [ast.Expr](./ast/Expr.md) // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
-					-	[*ast.Ident](./ast/Ident.md)
-					-	[*ast.ParenExpr](./ast/ParenExpr.md)
-					-	[*ast.SelectorExpr](./ast/SelectorExpr.md)
-					-	[*ast.StarExpr](./ast/StarExpr.md)
-					-	[ast.ArrayType](./ast/ArrayType.md)
+			-	[ast.TypeSpec](./go/ast/TypeSpec.md)
+				-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+				-	Name: [*ast.Ident](./go/ast/Ident.md) // type name
+				-	Type: [ast.Expr](./go/ast/Expr.md) // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
+					-	[*ast.Ident](./go/ast/Ident.md)
+					-	[*ast.ParenExpr](./go/ast/ParenExpr.md)
+					-	[*ast.SelectorExpr](./go/ast/SelectorExpr.md)
+					-	[*ast.StarExpr](./go/ast/StarExpr.md)
+					-	[ast.ArrayType](./go/ast/ArrayType.md)
 						-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
-						-	Len: [ast.Expr](./ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
-						-	Elt: [ast.Expr](./ast/Expr.md) // element type
-					-	[ast.ChanType](./ast/ChanType.md)
+						-	Len: [ast.Expr](./go/ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
+						-	Elt: [ast.Expr](./go/ast/Expr.md) // element type
+					-	[ast.ChanType](./go/ast/ChanType.md)
 						-	Begin: [token.Pos](https://godoc.org/go/token#Pos) // position of "chan" keyword or "-" (whichever comes first)
 						-	Arrow: [token.Pos](https://godoc.org/go/token#Pos) // position of "-" (token.NoPos if there is no "-")
-						-	Dir: [ChanDir](./ast/ChanDir.md) // channel direction
-						-	Value: [ast.Expr](./ast/Expr.md) // value type
-					-	[ast.FuncType](./ast/FuncType.md)
+						-	Dir: [ChanDir](./go/ast/ChanDir.md) // channel direction
+						-	Value: [ast.Expr](./go/ast/Expr.md) // value type
+					-	[ast.FuncType](./go/ast/FuncType.md)
 						-	Func: [token.Pos](https://godoc.org/go/token#Pos) // position of "func" keyword (token.NoPos if there is no "func")
-						-	Params: [*ast.FieldList](./ast/FieldList.md) // (incoming) parameters; non-nil
-						-	Results: [*ast.FieldList](./ast/FieldList.md) // (outgoing) results; or nil
-					-	[ast.InterfaceType](./ast/InterfaceType.md)
+						-	Params: [*ast.FieldList](./go/ast/FieldList.md) // (incoming) parameters; non-nil
+						-	Results: [*ast.FieldList](./go/ast/FieldList.md) // (outgoing) results; or nil
+					-	[ast.InterfaceType](./go/ast/InterfaceType.md)
 						-	Interface: [token.Pos](https://godoc.org/go/token#Pos) // position of "interface" keyword
-						-	Methods: [*ast.FieldList](./ast/FieldList.md) // list of methods
-					-	[ast.MapType](./ast/MapType.md)
+						-	Methods: [*ast.FieldList](./go/ast/FieldList.md) // list of methods
+					-	[ast.MapType](./go/ast/MapType.md)
 						-	Map: [token.Pos](https://godoc.org/go/token#Pos) // position of "map" keyword
-						-	Key: [ast.Expr](./ast/Expr.md)
-						-	Value: [ast.Expr](./ast/Expr.md)
-					-	[ast.StructType](./ast/StructType.md)
+						-	Key: [ast.Expr](./go/ast/Expr.md)
+						-	Value: [ast.Expr](./go/ast/Expr.md)
+					-	[ast.StructType](./go/ast/StructType.md)
 						-	Struct: [token.Pos](https://godoc.org/go/token#Pos) // position of "struct" keyword
-						-	Fields: [*ast.FieldList](./ast/FieldList.md) // list of field declarations
-				-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-			-	[ast.ValueSpec](./ast/ValueSpec.md)
-				-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-				-	Name: [*ast.Ident](./ast/Ident.md) // value name (len(Names) > 0)
-				-	Type: [ast.Expr](./ast/Expr.md) // value type; or nil
-				-	Values: [\[\]ast.Expr](./ast/Expr.md) // initial value; or nil
-				-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-	-	[ast.FuncDecl](./ast/FuncDecl.md)
-		-	Name: [ast.Ident](./ast/Ident.md)
-			-	[ast.Object](./ast/Object.md)
-				-	[ast.Decl](./ast/Decl.md)
-					-	[ast.Field](./ast/Field.md)
-						-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-						-	Names: [*ast.Ident](./ast/Ident.md) // field/method/parameter names; or nil if anonymous field
-						-	Type: [*ast.Expr](./ast/Expr.md) // field/method/parameter type
-						-	Tag: [*ast.BasicLit](./ast/CommentGroup.md) // field tag; or nil
-						-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-					-	[ast.ImportSpec](./ast/ImportSpec.md)
-						-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-						-	Name: [*ast.Ident](./ast/Ident.md) // local package name (including "."); or nil
-						-	Path: [*ast.BasicLit](./ast/CommentGroup.md) // import path
-						-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
+						-	Fields: [*ast.FieldList](./go/ast/FieldList.md) // list of field declarations
+				-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+			-	[ast.ValueSpec](./go/ast/ValueSpec.md)
+				-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+				-	Name: [*ast.Ident](./go/ast/Ident.md) // value name (len(Names) > 0)
+				-	Type: [ast.Expr](./go/ast/Expr.md) // value type; or nil
+				-	Values: [\[\]ast.Expr](./go/ast/Expr.md) // initial value; or nil
+				-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+	-	[ast.FuncDecl](./go/ast/FuncDecl.md)
+		-	Name: [ast.Ident](./go/ast/Ident.md)
+			-	[ast.Object](./go/ast/Object.md)
+				-	[ast.Decl](./go/ast/Decl.md)
+					-	[ast.Field](./go/ast/Field.md)
+						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+						-	Names: [*ast.Ident](./go/ast/Ident.md) // field/method/parameter names; or nil if anonymous field
+						-	Type: [*ast.Expr](./go/ast/Expr.md) // field/method/parameter type
+						-	Tag: [*ast.BasicLit](./go/ast/CommentGroup.md) // field tag; or nil
+						-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+					-	[ast.ImportSpec](./go/ast/ImportSpec.md)
+						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+						-	Name: [*ast.Ident](./go/ast/Ident.md) // local package name (including "."); or nil
+						-	Path: [*ast.BasicLit](./go/ast/CommentGroup.md) // import path
+						-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
 						-	EndPos: [token.Pos](https://godoc.org/go/token#Pos) // end of spec (overrides Path.Pos if nonzero)
-					-	[ast.TypeSpec](./ast/TypeSpec.md)
-						-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-						-	Name: [*ast.Ident](./ast/Ident.md) // type name
-						-	Type: [ast.Expr](./ast/Expr.md) // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
-							-	[*ast.Ident](./ast/Ident.md)
-							-	[*ast.ParenExpr](./ast/ParenExpr.md)
-							-	[*ast.SelectorExpr](./ast/SelectorExpr.md)
-							-	[*ast.StarExpr](./ast/StarExpr.md)
-							-	[ast.ArrayType](./ast/ArrayType.md)
+					-	[ast.TypeSpec](./go/ast/TypeSpec.md)
+						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+						-	Name: [*ast.Ident](./go/ast/Ident.md) // type name
+						-	Type: [ast.Expr](./go/ast/Expr.md) // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
+							-	[*ast.Ident](./go/ast/Ident.md)
+							-	[*ast.ParenExpr](./go/ast/ParenExpr.md)
+							-	[*ast.SelectorExpr](./go/ast/SelectorExpr.md)
+							-	[*ast.StarExpr](./go/ast/StarExpr.md)
+							-	[ast.ArrayType](./go/ast/ArrayType.md)
 								-	Lbrack: [token.Pos](https://godoc.org/go/token#Pos) // position of "\["
-								-	Len: [ast.Expr](./ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
-								-	Elt: [ast.Expr](./ast/Expr.md) // element type
-							-	[ast.ChanType](./ast/ChanType.md)
+								-	Len: [ast.Expr](./go/ast/Expr.md) // Ellipsis node for \[...\]T array types, nil for slice types
+								-	Elt: [ast.Expr](./go/ast/Expr.md) // element type
+							-	[ast.ChanType](./go/ast/ChanType.md)
 								-	Begin: [token.Pos](https://godoc.org/go/token#Pos) // position of "chan" keyword or "-" (whichever comes first)
 								-	Arrow: [token.Pos](https://godoc.org/go/token#Pos) // position of "-" (token.NoPos if there is no "-")
-								-	Dir: [ChanDir](./ast/ChanDir.md) // channel direction
-								-	Value: [ast.Expr](./ast/Expr.md) // value type
-							-	[ast.FuncType](./ast/FuncType.md)
+								-	Dir: [ChanDir](./go/ast/ChanDir.md) // channel direction
+								-	Value: [ast.Expr](./go/ast/Expr.md) // value type
+							-	[ast.FuncType](./go/ast/FuncType.md)
 								-	Func: [token.Pos](https://godoc.org/go/token#Pos) // position of "func" keyword (token.NoPos if there is no "func")
-								-	Params: [*ast.FieldList](./ast/FieldList.md) // (incoming) parameters; non-nil
-								-	Results: [*ast.FieldList](./ast/FieldList.md) // (outgoing) results; or nil
-							-	[ast.InterfaceType](./ast/InterfaceType.md)
+								-	Params: [*ast.FieldList](./go/ast/FieldList.md) // (incoming) parameters; non-nil
+								-	Results: [*ast.FieldList](./go/ast/FieldList.md) // (outgoing) results; or nil
+							-	[ast.InterfaceType](./go/ast/InterfaceType.md)
 								-	Interface: [token.Pos](https://godoc.org/go/token#Pos) // position of "interface" keyword
-								-	Methods: [*ast.FieldList](./ast/FieldList.md) // list of methods
-							-	[ast.MapType](./ast/MapType.md)
+								-	Methods: [*ast.FieldList](./go/ast/FieldList.md) // list of methods
+							-	[ast.MapType](./go/ast/MapType.md)
 								-	Map: [token.Pos](https://godoc.org/go/token#Pos) // position of "map" keyword
-								-	Key: [ast.Expr](./ast/Expr.md)
-								-	Value: [ast.Expr](./ast/Expr.md)
-							-	[ast.StructType](./ast/StructType.md)
+								-	Key: [ast.Expr](./go/ast/Expr.md)
+								-	Value: [ast.Expr](./go/ast/Expr.md)
+							-	[ast.StructType](./go/ast/StructType.md)
 								-	Struct: [token.Pos](https://godoc.org/go/token#Pos) // position of "struct" keyword
-								-	Fields: [*ast.FieldList](./ast/FieldList.md) // list of field declarations
-						-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-					-	[ast.ValueSpec](./ast/ValueSpec.md)
-						-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // associated documentation; or nil
-						-	Name: [*ast.Ident](./ast/Ident.md) // value name (len(Names) > 0)
-						-	Type: [ast.Expr](./ast/Expr.md) // value type; or nil
-						-	Values: [\[\]ast.Expr](./ast/Expr.md) // initial value; or nil
-						-	Comment: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-					-	[ast.FuncDecl](./ast/FuncDecl.md)
-						-	Doc: [*ast.CommentGroup](./ast/CommentGroup.md) // line comments; or nil
-						-	Recv: [*ast.FieldList](./ast/FieldList.md) // receiver (methods); or nil (functions)
-						-	Name: [*ast.Ident](./ast/Ident.md) // function/method name
-						-	Type: [*ast.FuncType](./ast/FuncType.md) // function signature: parameters, results, and position of "func" keyword
-						-	Body: [*ast.BlockStmt](./ast/BlockStmt.md) // function body; or nil (forward declaration)
-					-	[ast.LabeledStmt](./ast/LabeledStmt.md)
-						-	Label: [*ast.Ident](./ast/Ident.md)
+								-	Fields: [*ast.FieldList](./go/ast/FieldList.md) // list of field declarations
+						-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+					-	[ast.ValueSpec](./go/ast/ValueSpec.md)
+						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
+						-	Name: [*ast.Ident](./go/ast/Ident.md) // value name (len(Names) > 0)
+						-	Type: [ast.Expr](./go/ast/Expr.md) // value type; or nil
+						-	Values: [\[\]ast.Expr](./go/ast/Expr.md) // initial value; or nil
+						-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+					-	[ast.FuncDecl](./go/ast/FuncDecl.md)
+						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
+						-	Recv: [*ast.FieldList](./go/ast/FieldList.md) // receiver (methods); or nil (functions)
+						-	Name: [*ast.Ident](./go/ast/Ident.md) // function/method name
+						-	Type: [*ast.FuncType](./go/ast/FuncType.md) // function signature: parameters, results, and position of "func" keyword
+						-	Body: [*ast.BlockStmt](./go/ast/BlockStmt.md) // function body; or nil (forward declaration)
+					-	[ast.LabeledStmt](./go/ast/LabeledStmt.md)
+						-	Label: [*ast.Ident](./go/ast/Ident.md)
 						-	Colon: [token.Pos](https://godoc.org/go/token#Pos) // position of ":"
-						-	Stmt: [ast.Stmt](./ast/Stmt.md)
-					-	[ast.AssignStmt](./ast/AssignStmt.md)
-						-	Lhs: [\[\]ast.Expr](./ast/Expr.md)
+						-	Stmt: [ast.Stmt](./go/ast/Stmt.md)
+					-	[ast.AssignStmt](./go/ast/AssignStmt.md)
+						-	Lhs: [\[\]ast.Expr](./go/ast/Expr.md)
 						-	TokPos: [token.Pos](https://godoc.org/go/token#Pos) // position of Tok
 						-	Tok: [token.Token](https://godoc.org/go/token#Token) // assignment token, DEFINE
-						-	Rhs: [\[\]ast.Expr](./ast/Expr.md)
-					-	[ast.Scope](./ast/Scope.md)
-						-	Outer: [*ast.Scope](./ast/Scope.md)
-						-	Objects: [map\[string\]*ast.Object](./ast/Object.md)
+						-	Rhs: [\[\]ast.Expr](./go/ast/Expr.md)
+					-	[ast.Scope](./go/ast/Scope.md)
+						-	Outer: [*ast.Scope](./go/ast/Scope.md)
+						-	Objects: [map\[string\]*ast.Object](./go/ast/Object.md)
 
 ast.Stmt
 --------
 
--	[ast.Stmt](./ast/Stmt.md)
-	-	[ast.BadStmt](./ast/BadStmt.md)
-	-	[ast.DeclStmt](./ast/DeclStmt.md)
-	-	[ast.EmptyStmt](./ast/EmptyStmt.md)
-	-	[ast.LabeledStmt](./ast/LabeledStmt.md)
-	-	[ast.ExprStmt](./ast/ExprStmt.md)
-	-	[ast.SendStmt](./ast/SendStmt.md)
-	-	[ast.IncDecStmt](./ast/IncDecStmt.md)
-	-	[ast.AssignStmt](./ast/AssignStmt.md)
-	-	[ast.GoStmt](./ast/GoStmt.md)
-	-	[ast.DeferStmt](./ast/DeferStmt.md)
-	-	[ast.ReturnStmt](./ast/ReturnStmt.md)
-	-	[ast.BranchStmt](./ast/BranchStmt.md)
-	-	[ast.BlockStmt](./ast/BlockStmt.md)
-	-	[ast.IfStmt](./ast/IfStmt.md)
-	-	[ast.CaseClause](./ast/CaseClause.md)
-	-	[ast.SwitchStmt](./ast/SwitchStmt.md)
-	-	[ast.TypeSwitchStmt](./ast/TypeSwitchStmt.md)
-	-	[ast.CommClause](./ast/CommClause.md)
-	-	[ast.SelectStmt](./ast/SelectStmt.md)
-	-	[ast.ForStmt](./ast/ForStmt.md)
-	-	[ast.RangeStmt](./ast/RangeStmt.md)
+-	[ast.Stmt](./go/ast/Stmt.md)
+	-	[ast.BadStmt](./go/ast/BadStmt.md)
+	-	[ast.DeclStmt](./go/ast/DeclStmt.md)
+	-	[ast.EmptyStmt](./go/ast/EmptyStmt.md)
+	-	[ast.LabeledStmt](./go/ast/LabeledStmt.md)
+	-	[ast.ExprStmt](./go/ast/ExprStmt.md)
+	-	[ast.SendStmt](./go/ast/SendStmt.md)
+	-	[ast.IncDecStmt](./go/ast/IncDecStmt.md)
+	-	[ast.AssignStmt](./go/ast/AssignStmt.md)
+	-	[ast.GoStmt](./go/ast/GoStmt.md)
+	-	[ast.DeferStmt](./go/ast/DeferStmt.md)
+	-	[ast.ReturnStmt](./go/ast/ReturnStmt.md)
+	-	[ast.BranchStmt](./go/ast/BranchStmt.md)
+	-	[ast.BlockStmt](./go/ast/BlockStmt.md)
+	-	[ast.IfStmt](./go/ast/IfStmt.md)
+	-	[ast.CaseClause](./go/ast/CaseClause.md)
+	-	[ast.SwitchStmt](./go/ast/SwitchStmt.md)
+	-	[ast.TypeSwitchStmt](./go/ast/TypeSwitchStmt.md)
+	-	[ast.CommClause](./go/ast/CommClause.md)
+	-	[ast.SelectStmt](./go/ast/SelectStmt.md)
+	-	[ast.ForStmt](./go/ast/ForStmt.md)
+	-	[ast.RangeStmt](./go/ast/RangeStmt.md)

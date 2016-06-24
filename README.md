@@ -90,100 +90,100 @@ func main() {
 }
 ```
 
--	[`*ast.File`](./ast/File.md)
-	-	[Package](./ast/File.md#astfilepackage): ./cmd/lookup/lookup.go:1:1
-	-	[Name](./ast/File.md#astfilename): [`*ast.Ident`](./ast/Ident.md)
+-	[`*ast.File`](./go/ast/File.md)
+	-	[Package](./go/ast/File.md#astfilepackage): ./cmd/lookup/lookup.go:1:1
+	-	[Name](./go/ast/File.md#astfilename): [`*ast.Ident`](./go/ast/Ident.md)
 		-	NamePos: ./cmd/lookup/lookup.go:1:9
 		-	Name: `"main"`
-	-	[Decls](./ast/File.md#astfiledecls): [`[]ast.Decl`](./ast/Decl.md) (len = 3)
-		1.	[`*ast.GenDecl`](./ast/GenDecl.md) // import
+	-	[Decls](./go/ast/File.md#astfiledecls): [`[]ast.Decl`](./go/ast/Decl.md) (len = 3)
+		1.	[`*ast.GenDecl`](./go/ast/GenDecl.md) // import
 			-	`TokPos`: ./cmd/lookup/lookup.go:3:1
 			-	`Tok`: import
 			-	`Lparen`: ./cmd/lookup/lookup.go:3:8
-			-	`Specs`: [`[]ast.Spec`](./ast/Spec.md) (len = 8)
-				-	[`*ast.ImportSpec`](./ast/ImportSpec.md)
-					-	Path: [`*ast.BasicLit`](./ast/BasicLit.md)
+			-	`Specs`: [`[]ast.Spec`](./go/ast/Spec.md) (len = 8)
+				-	[`*ast.ImportSpec`](./go/ast/ImportSpec.md)
+					-	Path: [`*ast.BasicLit`](./go/ast/BasicLit.md)
 					-	ValuePos: ./cmd/lookup/lookup.go:4:2
 					-	Kind: STRING
 					-	Value: "\"fmt\""
 					-	EndPos: -
 				-	omit...
 			-	`Rparen`: ./cmd/lookup/lookup.go:12:1
-		2.	[`*ast.GenDecl`](./ast/GenDecl.md) // type
+		2.	[`*ast.GenDecl`](./go/ast/GenDecl.md) // type
 			-	TokPos: ./cmd/lookup/lookup.go:14:1
 			-	Tok: type
 			-	Lparen: -
-			-	Specs: [`[]ast.Spec`](./ast/Spec.md) (len = 1)
-				1.	[`*ast.TypeSpec`](./ast/TypeSpec.md)
-					-	Name: [`*ast.Ident`](./ast/Ident.md)
+			-	Specs: [`[]ast.Spec`](./go/ast/Spec.md) (len = 1)
+				1.	[`*ast.TypeSpec`](./go/ast/TypeSpec.md)
+					-	Name: [`*ast.Ident`](./go/ast/Ident.md)
 						-	NamePos: ./cmd/lookup/lookup.go:14:6
 						-	Name: "Lookup"
-						-	Obj: [`*ast.Object`](./ast/Object.md)
+						-	Obj: [`*ast.Object`](./go/ast/Object.md)
 							-	Kind: type
 							-	Name: "Lookup"
 							-	Decl: *(obj @ 84)
-					-	Type: [`*ast.StructType`](./ast/StructType.md)
+					-	Type: [`*ast.StructType`](./go/ast/StructType.md)
 						-	omit...
 			-	Rparen: -
-		3.	[`*ast.GenDecl`](./ast/GenDecl.md) // const
+		3.	[`*ast.GenDecl`](./go/ast/GenDecl.md) // const
 			-	TokPos: ./cmd/lookup/lookup.go:20:1
 			-	Tok: `const`
 			-	Lparen: -
-			-	Specs: [`[]ast.Spec`](./ast/Spec.md) (len = 1)
-				-	[`*ast.ValueSpec`](./ast/ValueSpec.md)
-					-	Names: [`[]*ast.Ident`](./ast/Ident.md) (len = 1)
-						-	[`*ast.Ident`](./ast/Ident.md)
+			-	Specs: [`[]ast.Spec`](./go/ast/Spec.md) (len = 1)
+				-	[`*ast.ValueSpec`](./go/ast/ValueSpec.md)
+					-	Names: [`[]*ast.Ident`](./go/ast/Ident.md) (len = 1)
+						-	[`*ast.Ident`](./go/ast/Ident.md)
 							-	NamePos: ./cmd/lookup/lookup.go:14:7
 							-	Name: "hello"
-							-	Obj: [`*ast.Object`](./ast/Object.md)
+							-	Obj: [`*ast.Object`](./go/ast/Object.md)
 							-	Kind: const
 							-	Name: `"hello"`
 							-	Decl: *(obj @ 186)
 							-	Data: 0
-					-	Values: [`[]ast.Expr`](./ast/Expr.md) (len = 1)
-						-	[`*ast.BasicLit`](./ast/BasicLit.md)
+					-	Values: [`[]ast.Expr`](./go/ast/Expr.md) (len = 1)
+						-	[`*ast.BasicLit`](./go/ast/BasicLit.md)
 							-	ValuePos: ./cmd/lookup/lookup.go:20:15
 							-	Kind: STRING
 							-	Value: "`\npackage main\n\nimport \"fmt\"\n\n// append\nfunc main() {\n        // fmt\n        fmt.Println(\"Hello, world\")\n        // main\n        main, x := 1, 2\n        // main\n        print(main, x)\n        // x\n}\n// x\n`"
 			-	Rparen: -
-		4.	[`*ast.GenDecl`](./ast/GenDecl.md) // var
+		4.	[`*ast.GenDecl`](./go/ast/GenDecl.md) // var
 			-	TokPos: ./cmd/lookup/lookup.go:38:1
 			-	Tok: var
 			-	Lparen: -
-			-	Specs: [`[]ast.Spec`](./ast/Spec.md) (len = 1)
-				1.	[`*ast.ValueSpec`](./ast/ValueSpec.md)
-					-	Names: [`[]*ast.Ident`](./ast/Ident.md) (len = 1)
-						-	[`*ast.Ident`](./ast/Ident.md)
+			-	Specs: [`[]ast.Spec`](./go/ast/Spec.md) (len = 1)
+				1.	[`*ast.ValueSpec`](./go/ast/ValueSpec.md)
+					-	Names: [`[]*ast.Ident`](./go/ast/Ident.md) (len = 1)
+						-	[`*ast.Ident`](./go/ast/Ident.md)
 							-	NamePos: ./cmd/lookup/lookup.go:38:5
 							-	Name: "helloFile"
-							-	Obj: [`*ast.Object`](./ast/Object.md)
+							-	Obj: [`*ast.Object`](./go/ast/Object.md)
 							-	Kind: var
 							-	Name: "helloFile"
 							-	Decl: *(obj @ 215)
 							-	Data: 0
-					-	Values: [`[]ast.Expr`](./ast/Expr.md) (len = 1)
-						-	[`*ast.Ident`](./ast/Ident.md)
+					-	Values: [`[]ast.Expr`](./go/ast/Expr.md) (len = 1)
+						-	[`*ast.Ident`](./go/ast/Ident.md)
 							-	NamePos: ./cmd/lookup/lookup.go:38:17
 							-	Name: "hello"
 							-	Obj: *(obj @ 191)
 			-	Rparen: -
-		5.	[`*ast.FuncDecl`](./ast/FuncDecl.md) // func main()
-			-	Name: [`*ast.Ident`](./ast/Ident.md)
+		5.	[`*ast.FuncDecl`](./go/ast/FuncDecl.md) // func main()
+			-	Name: [`*ast.Ident`](./go/ast/Ident.md)
 				-	omit...
-			-	Type: [`*ast.FuncType`](./ast/FuncType.md)
+			-	Type: [`*ast.FuncType`](./go/ast/FuncType.md)
 				-	omit...
-			-	Body: [`*ast.BlockStmt`](./ast/BlockStmt.md)
+			-	Body: [`*ast.BlockStmt`](./go/ast/BlockStmt.md)
 				-	omit...
-	-	[Scope](./ast/File.md#astfilescope): [`*ast.Scope`](./ast/Scope.md)
-		-	Objects: [`map[string]*ast.Object`](./ast/Object.md) (len = 2)
+	-	[Scope](./go/ast/File.md#astfilescope): [`*ast.Scope`](./go/ast/Scope.md)
+		-	Objects: [`map[string]*ast.Object`](./go/ast/Object.md) (len = 2)
 			-	'Lookup': *(obj @ 88)
 			-	"hello": *(obj @ 191)
 			-	"helloFile": *(obj @ 220)
 			-	"main": *(obj @ 243)
-	-	[Imports](./ast/File.md#astfileimports): [`[]*ast.ImportSpec`](./ast/ImportSpec.md) (len = 8)
+	-	[Imports](./go/ast/File.md#astfileimports): [`[]*ast.ImportSpec`](./go/ast/ImportSpec.md) (len = 8)
 		-	*(obj @ 12)
 		-	omit...
-	-	[Unresolved](./ast/File.md#astfileunresolved): [`[]*ast.Ident`](./ast/Ident.md) (len = 16)
+	-	[Unresolved](./go/ast/File.md#astfileunresolved): [`[]*ast.Ident`](./go/ast/Ident.md) (len = 16)
 		-	*(obj @ 111)
 		-	omit...
 
