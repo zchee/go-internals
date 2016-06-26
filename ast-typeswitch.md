@@ -295,9 +295,14 @@ ast.Decl
 				-	Values: [\[\]ast.Expr](./go/ast/Expr.md) // initial value; or nil
 				-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
 	-	[*ast.FuncDecl](./go/ast/FuncDecl.md)
-		-	Name: [ast.Ident](./go/ast/Ident.md)
-			-	[ast.Object](./go/ast/Object.md)
-				-	[ast.Decl](./go/ast/Decl.md)
+		-	Recv: [*ast.FieldList](./go/ast/FieldList.md) // receiver (methods); or nil (functions)
+			-	List: [\[\]*ast.Field](./go/ast/Field.md) // field list; or nil
+				-	Names: [\[\]*ast.Ident](./go/ast/Ident.md) // field/method/parameter names; or nil if anonymous field
+				-	Type: [*ast.Expr](./go/ast/Expr.md) // field/method/parameter type
+				-	Tag:[*ast.BasicLit](./go/ast/BasicLit.md) // field tag; or nil
+		-	Name: [ast.Ident](./go/ast/Ident.md) // function/method name
+			-	Obj: [ast.Object](./go/ast/Object.md)
+				-	Decl: [ast.Decl](./go/ast/Decl.md)
 					-	[ast.Field](./go/ast/Field.md)
 						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
 						-	Names: [*ast.Ident](./go/ast/Ident.md) // field/method/parameter names; or nil if anonymous field
@@ -366,6 +371,12 @@ ast.Decl
 					-	[ast.Scope](./go/ast/Scope.md)
 						-	Outer: [*ast.Scope](./go/ast/Scope.md)
 						-	Objects: [map\[string\]*ast.Object](./go/ast/Object.md)
+		-	Type: [*ast.FuncType](./go/ast/FuncType.md) // function signature: parameters, results, and position of "func" keyword
+			-	Func: [token.Pos](https://godoc.org/go/token#Pos) // position of "func" keyword (token.NoPos if there is no "func")
+			-	Params: [*ast.FieldList](./go/ast/FieldList.md) // (incoming) parameters; non-nil
+			-	Results: [*ast.FieldList](./go/ast/FieldList.md) // (outgoing) results; or nil
+		-	Body: [*ast.BlockStmt](./go/ast/BlockStmt.md) // function body; or nil (forward declaration)
+			-	List: [\[\]ast.Stmt](./go/ast/Stmt.md)
 
 ast.Stmt
 --------
