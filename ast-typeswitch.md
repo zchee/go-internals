@@ -349,7 +349,7 @@ ast.Decl
 						-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
 					-	[ast.ValueSpec](./go/ast/ValueSpec.md)
 						-	Doc: [*ast.CommentGroup](./go/ast/CommentGroup.md) // associated documentation; or nil
-						-	Name: [*ast.Ident](./go/ast/Ident.md) // value name (len(Names) > 0)
+						-	Names: [\[\]*ast.Ident](./go/ast/Ident.md) // value name (len(Names) > 0)
 						-	Type: [ast.Expr](./go/ast/Expr.md) // value type; or nil
 						-	Values: [\[\]ast.Expr](./go/ast/Expr.md) // initial value; or nil
 						-	Comment: [*ast.CommentGroup](./go/ast/CommentGroup.md) // line comments; or nil
