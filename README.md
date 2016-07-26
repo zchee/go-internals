@@ -1,7 +1,7 @@
-Go abstract syntax tree Cheatsheets
-===================================
+Go cheatsheets
+==============
 
-The Cheatsheet for how to read and write Go abstract syntax tree.
+The cheatsheet for how to read and write Go source code.
 
 Including
 
