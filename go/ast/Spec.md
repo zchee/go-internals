@@ -214,7 +214,7 @@ type TypeSpec struct {
 |---------|------------------------------------------------------------------------|
 | Doc     | [*ast.CommentGroup (godoc.org)](https://godoc.org/go/ast#CommentGroup) |
 | Name    | [*ast.Ident](./Ident.md)                                               |
-| Type    | [*ast.Expr](./Expr.md)                                                 |
+| Type    | [ast.Expr](./Expr.md)                                                 |
 | Comment | [*ast.CommentGroup (godoc.org)](https://godoc.org/go/ast#CommentGroup) |
 
 ### Method
