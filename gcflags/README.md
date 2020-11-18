@@ -1,10 +1,10 @@
 # gcflags
 
-version: [go1.15.2](https://github.com/golang/go/tree/go1.15.2)
+version: [devel +35693d037f9d](https://github.com/golang/go/tree/35693d037f9d)
 
 ## debugtab
 
-[go/src/cmd/compile/internal/gc/main.go#L64-L112@go1.15.2](https://github.com/golang/go/blob/go1.15.2/src/cmd/compile/internal/gc/main.go#L64-L112)
+[go/src/cmd/compile/internal/gc/main.go#L62-L111@5b0ec1a6ac0e](https://github.com/golang/go/blob/5b0ec1a6ac0e/src/cmd/compile/internal/gc/main.go#L62-L111)
 
 ```go
 // Debug arguments.
@@ -37,6 +37,7 @@ var debugtab = []struct {
 	{"dwarfinl", "print information about DWARF inlined function creation", &Debug_gendwarfinl},
 	{"softfloat", "force compiler to emit soft-float code", &Debug_softfloat},
 	{"defer", "print information about defer compilation", &Debug_defer},
+	{"fieldtrack", "enable fieldtracking", &objabi.Fieldtrack_enabled},
 }
 
 const debugHelpHeader = `usage: -d arg[,arg]* and arg is <key>[=<value>]
@@ -45,12 +46,10 @@ const debugHelpHeader = `usage: -d arg[,arg]* and arg is <key>[=<value>]
 
 const debugHelpFooter = `
 <value> is key-specific.
-
 Key "checkptr" supports values:
 	"0": instrumentation disabled
 	"1": conversions involving unsafe.Pointer are instrumented
 	"2": conversions to unsafe.Pointer force heap allocation
-
 Key "pctab" supports values:
 	"pctospadj", "pctofile", "pctoline", "pctoinline", "pctopcdata"
 `
@@ -59,7 +58,7 @@ Key "pctab" supports values:
 ### Usage
 
 ```sh
-go build -o /dev/null -gcflags='all=-d=append,checkptr=2,closure,compilelater,disablenil,dclstack,gcprog=2,libfuzzer,nil,panic,slice,typeassert,wb,export,pctab=(pctospadj,pctofile,pctoline,pctoinline,pctopcdata),locationlists,typecheckinl,dwarfinl,softfloat,defer' <package import path>/...
+go build -o /dev/null -gcflags='all=-d=append,checkptr=1,checkptr=2,closure,compilelater,disablenil,dclstack,gcprog=2,libfuzzer,nil,panic,slice,typeassert,wb,export,pctab=(pctospadj,pctofile,pctoline,pctoinline,pctopcdata),locationlists,typecheckinl,dwarfinl,softfloat,defer,fieldtrack' <package import path>/...
 ```
 
 ### Details
@@ -91,7 +90,7 @@ go build -o /dev/null -gcflags='-d=ssa/<phase>/<flag>[=<value>|<function_name>] 
     - `off`
     - `debug`
 
-[go/src/cmd/compile/internal/ssa/compile.go#L417-L472@go1.15.2](https://github.com/golang/go/blob/go1.15.2/src/cmd/compile/internal/ssa/compile.go#L417-L472)
+[go/src/cmd/compile/internal/ssa/compile.go#L426-L482@35693d037f9d](https://github.com/golang/go/blob/35693d037f9d/src/cmd/compile/internal/ssa/compile.go#L426-L482)
 
 ```go
 // list of passes for the compiler
@@ -102,7 +101,7 @@ var passes = [...]pass{
 	{name: "early copyelim", fn: copyelim},
 	{name: "early deadcode", fn: deadcode}, // remove generated dead code to avoid doing pointless work during opt
 	{name: "short circuit", fn: shortcircuit},
-	{name: "decompose args", fn: decomposeArgs, required: true},
+	{name: "decompose args", fn: decomposeArgs, required: !go116lateCallExpansion, disabled: go116lateCallExpansion}, // handled by late call lowering
 	{name: "decompose user", fn: decomposeUser, required: true},
 	{name: "pre-opt deadcode", fn: deadcode},
 	{name: "opt", fn: opt, required: true},               // NB: some generic rules know the name of the opt pass. TODO: split required rules and optimizing rules
@@ -115,6 +114,7 @@ var passes = [...]pass{
 	{name: "prove", fn: prove},
 	{name: "early fuse", fn: fuseEarly},
 	{name: "decompose builtin", fn: decomposeBuiltIn, required: true},
+	{name: "expand calls", fn: expandCalls, required: true},
 	{name: "softfloat", fn: softfloat, required: true},
 	{name: "late opt", fn: opt, required: true}, // TODO: split required rules and optimizing rules
 	{name: "dead auto elim", fn: elimDeadAutosGeneric},
